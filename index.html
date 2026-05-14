@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>STUDIO — AI Movie Booking</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="grain"></div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="logo">
+      <span class="logo-mark">▶</span>
+      <span class="logo-text">STUDIO</span>
+    </div>
+    <div class="nav-right">
+      <span class="nav-tag">AI PRODUCTION</span>
+      <div class="status-dot"></div>
+      <span class="nav-status">LIVE</span>
+    </div>
+  </div>
+</nav>
+
+<main class="main">
+
+  <!-- Left: Calendar -->
+  <section class="cal-section">
+    <div class="cal-header">
+      <button class="arrow-btn" id="prevBtn">←</button>
+      <div class="cal-month-wrap">
+        <span class="cal-month" id="calMonth"></span>
+        <span class="cal-year" id="calYear"></span>
+      </div>
+      <button class="arrow-btn" id="nextBtn">→</button>
+    </div>
+
+    <div class="cal-days-header">
+      <span>MO</span><span>TU</span><span>WE</span><span>TH</span><span>FR</span><span>SA</span><span>SU</span>
+    </div>
+
+    <div class="cal-grid" id="calGrid"></div>
+
+    <div class="cal-legend">
+      <div class="legend-item"><span class="leg-dot free"></span>Available</div>
+      <div class="legend-item"><span class="leg-dot partial"></span>Partially booked</div>
+      <div class="legend-item"><span class="leg-dot full"></span>Full</div>
+    </div>
+  </section>
+
+  <!-- Right: Day Panel -->
+  <section class="day-section" id="daySection">
+    <div class="day-empty" id="dayEmpty">
+      <div class="empty-icon">📅</div>
+      <p class="empty-title">Select a day</p>
+      <p class="empty-sub">Click any date to manage bookings and time slots</p>
+    </div>
+
+    <div class="day-content" id="dayContent" style="display:none">
+      <div class="day-title-row">
+        <div>
+          <span class="day-label-text" id="dayLabel"></span>
+          <span class="day-slots-summary" id="daySlotsSummary"></span>
+        </div>
+        <button class="close-btn" id="closeBtn">✕</button>
+      </div>
+
+      <div class="slots-wrap" id="slotsWrap"></div>
+
+      <div class="bookings-wrap" id="bookingsWrap"></div>
+
+      <!-- Booking form -->
+      <div class="form-wrap" id="formWrap" style="display:none">
+        <div class="form-header">
+          <span class="form-title">New booking — <span id="formSlot" class="form-slot-accent"></span></span>
+        </div>
+        <div class="form-body">
+          <div class="field-row">
+            <div class="field">
+              <label>Client name</label>
+              <input type="text" id="fName" placeholder="e.g. Asel Nurova">
+            </div>
+            <div class="field">
+              <label>Contact</label>
+              <input type="text" id="fContact" placeholder="+7 ... or email">
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label>Scene type</label>
+              <select id="fType">
+                <option value="">Select type</option>
+                <option>AI portrait session</option>
+                <option>AI cinematic scene</option>
+                <option>AI product shoot</option>
+                <option>AI background generation</option>
+                <option>Full AI movie scene</option>
+                <option>Custom</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>Style / theme</label>
+              <input type="text" id="fStyle" placeholder="noir, sci-fi, romantic...">
+            </div>
+          </div>
+          <div class="field">
+            <label>Notes</label>
+            <textarea id="fNotes" placeholder="Special requests, references, deadlines..."></textarea>
+          </div>
+          <div class="form-actions">
+            <button class="btn-cancel" id="cancelBtn">Cancel</button>
+            <button class="btn-save" id="saveBtn">Save booking</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- Upcoming sidebar -->
+<aside class="upcoming" id="upcoming">
+  <div class="upcoming-header">
+    <span class="upcoming-title">UPCOMING</span>
+    <span class="upcoming-count" id="upcomingCount">0</span>
+  </div>
+  <div class="upcoming-list" id="upcomingList">
+    <p class="no-upcoming">No bookings yet</p>
+  </div>
+</aside>
+
+<script src="app.js"></script>
+</body>
+</html>
